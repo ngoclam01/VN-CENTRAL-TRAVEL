@@ -1,72 +1,36 @@
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
-menuToggle?.addEventListener('click', () => {
-  const open = mainNav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(open));
-});
-mainNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  mainNav.classList.remove('open');
-  menuToggle?.setAttribute('aria-expanded', 'false');
-}));
-
-let language = 'vi';
-const langToggle = document.getElementById('langToggle');
-langToggle?.addEventListener('click', () => {
-  language = language === 'vi' ? 'en' : 'vi';
-  document.documentElement.lang = language;
-  document.querySelectorAll('[data-vi][data-en]').forEach(el => {
-    el.innerHTML = el.dataset[language];
-  });
-  if (langToggle) langToggle.textContent = language === 'vi' ? 'EN' : 'VI';
-  const dest = document.getElementById('destination');
-  if (dest && dest.options.length) {
-    const texts = language === 'vi'
-      ? ['Tất cả điểm đến', 'Miền Trung', 'Miền Bắc', 'Miền Nam']
-      : ['All destinations', 'Central Vietnam', 'Northern Vietnam', 'Southern Vietnam'];
-    [...dest.options].forEach((o, i) => o.textContent = texts[i] || o.textContent);
-  }
-  const style = document.getElementById('style');
-  if (style) {
-    const texts = language === 'vi'
-      ? ['Tất cả trải nghiệm', 'Văn hóa & di sản', 'Thiên nhiên', 'Biển & nghỉ dưỡng']
-      : ['All travel styles', 'Culture & heritage', 'Nature', 'Beach & relaxation'];
-    [...style.options].forEach((o, i) => o.textContent = texts[i] || o.textContent);
-  }
-  const duration = document.getElementById('duration');
-  if (duration) {
-    const texts = language === 'vi'
-      ? ['Mọi thời lượng', '1–2 ngày', '3 ngày trở lên']
-      : ['Any duration', '1–2 days', '3+ days'];
-    [...duration.options].forEach((o, i) => o.textContent = texts[i] || o.textContent);
-  }
-});
-
-document.getElementById('tourSearch')?.addEventListener('submit', event => {
-  event.preventDefault();
-  const region = document.getElementById('destination').value;
-  const style = document.getElementById('style').value;
-  const duration = document.getElementById('duration').value;
-  let count = 0;
-  document.querySelectorAll('.tour-card').forEach(card => {
-    const show = (region === 'all' || card.dataset.region === region) &&
-      (style === 'all' || card.dataset.style === style) &&
-      (duration === 'all' || card.dataset.duration === duration);
-    card.hidden = !show;
-    if (show) count++;
-  });
-  document.getElementById('noResults').hidden = count > 0;
-  document.getElementById('tourGrid').scrollIntoView({behavior:'smooth', block:'center'});
-});
-
-document.getElementById('contactForm')?.addEventListener('submit', event => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const data = new FormData(form);
-  const email = 'hello@vncentraltravel.com'; // THAY BẰNG EMAIL THẬT CỦA CÔNG TY
-  const subject = encodeURIComponent('Yêu cầu tư vấn tour - VN CENTRAL TRAVEL');
-  const body = encodeURIComponent(
-    `Họ và tên: ${data.get('name')}\nEmail/WhatsApp: ${data.get('contact')}\nTour quan tâm: ${data.get('tour')}\nLời nhắn: ${data.get('message') || '(Không có)'}`
-  );
-  window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-});
-document.getElementById('year').textContent = new Date().getFullYear();
+const translations = {
+vi:{
+navHome:"Trang chủ",navServices:"Dịch vụ",navDestinations:"Điểm đến",navAbout:"Về chúng tôi",navContact:"Liên hệ",
+heroEyebrow:"YOUR JOURNEY STARTS HERE",heroCopy:"Khám phá vẻ đẹp Việt Nam qua những hành trình phù hợp với bạn — từ thành phố sôi động đến thiên nhiên yên bình.",exploreServices:"Khám phá dịch vụ ↗",planTrip:"Lên kế hoạch chuyến đi",heroNote:"Hành trình của bạn, theo cách của bạn",heroBottom:"VIETNAM • CULTURE • NATURE • EXPERIENCE",
+introLabel:"TRAVEL WITH MEANING",introTitle:"Không chỉ là một chuyến đi.<br><span>Là câu chuyện của bạn.</span>",introText:"Mỗi du khách có một cách khám phá riêng. VN CENTRAL TRAVEL giới thiệu các dịch vụ du lịch linh hoạt để bạn có thể lên kế hoạch cho hành trình tại Việt Nam theo nhu cầu của mình.",
+servicesLabel:"WHAT WE OFFER",servicesTitle:"Dịch vụ du lịch",servicesIntro:"Chọn dịch vụ phù hợp với kế hoạch và phong cách du lịch của bạn.",service1Title:"Tour trọn gói",service1Text:"Khám phá các điểm đến với chương trình tour được sắp xếp rõ ràng.",service2Title:"Tour theo yêu cầu",service2Text:"Xây dựng lịch trình theo sở thích, thời gian và nhu cầu của bạn.",service3Title:"Đưa đón sân bay",service3Text:"Đón và tiễn khách giữa sân bay với điểm lưu trú theo lịch trình.",service4Title:"Đặt khách sạn",service4Text:"Hỗ trợ tìm lựa chọn lưu trú phù hợp với kế hoạch của bạn.",service5Title:"Hướng dẫn viên",service5Text:"Tìm hiểu văn hóa và điểm đến cùng dịch vụ hướng dẫn phù hợp.",serviceDisclaimer:"Thông tin dịch vụ trên là phần giới thiệu tổng quan. Vui lòng liên hệ để xác nhận dịch vụ, lịch trình, tình trạng cung cấp và chi phí.",serviceDetailLabel1:"DỊCH VỤ 01",serviceDetailTitle1:"Tour trọn gói",serviceDetailText1:"Tour trọn gói là chuyến đi được công ty lên kế hoạch và tổ chức theo lịch trình, kết hợp các điểm tham quan cùng những dịch vụ như di chuyển, lưu trú hoặc hướng dẫn viên tùy chương trình. Thay vì tự sắp xếp từng chặng, du khách có thể để công ty phụ trách các khâu trong tour và dành thời gian tận hưởng hành trình qua những miền đất Việt Nam.",serviceDetailExtra1:"Lịch trình, dịch vụ đi kèm và chi phí được trình bày rõ theo từng chương trình để du khách dễ dàng lựa chọn và an tâm trải nghiệm.",serviceDetailLabel2:"DỊCH VỤ 02",serviceDetailTitle2:"Tour theo yêu cầu",serviceDetailText2:"Tour theo yêu cầu là hành trình do công ty thiết kế và tổ chức dựa trên sở thích, lịch trình và phong cách trải nghiệm của du khách, thay vì theo một chương trình cố định. Từ ẩm thực, thiên nhiên đến văn hóa, mỗi hành trình được sắp xếp để du khách khám phá Việt Nam theo nhịp điệu riêng mà không phải tự lo từng khâu tổ chức.",serviceDetailExtra2:"Công ty phụ trách xây dựng lịch trình và điều phối các dịch vụ phù hợp, giúp chuyến đi được sắp xếp liền mạch từ khâu chuẩn bị đến trải nghiệm.",serviceDetailLabel3:"DỊCH VỤ 03",serviceDetailTitle3:"Đưa đón sân bay",serviceDetailText3:"Dịch vụ đưa đón sân bay giúp du khách di chuyển thuận tiện giữa sân bay và điểm lưu trú khi bắt đầu hoặc kết thúc chuyến đi. Công ty sắp xếp xe đón, tiễn theo lịch trình đã thống nhất, để du khách không phải tự tìm phương tiện sau chuyến bay và có thể yên tâm nối tiếp hành trình.",serviceDetailExtra3:"Dịch vụ tập trung riêng vào chặng đưa đón sân bay; lịch đón, điểm đến và phương án di chuyển được công ty sắp xếp theo chương trình.",serviceDetailLabel4:"DỊCH VỤ 04",serviceDetailTitle4:"Đặt khách sạn",serviceDetailText4:"Công ty hỗ trợ lựa chọn và đặt nơi lưu trú phù hợp với hành trình, để du khách có không gian nghỉ ngơi thoải mái và thuận tiện khám phá điểm đến. Từ khách sạn giữa phố nhộn nhịp đến khu nghỉ dưỡng yên bình, nơi lưu trú được sắp xếp hài hòa với trải nghiệm của chuyến đi.",serviceDetailExtra4:"Công ty hỗ trợ sắp xếp đặt phòng và thông tin về nơi lưu trú; tình trạng phòng, chính sách và mức giá được xác nhận theo thời điểm đặt.",serviceDetailLabel5:"DỊCH VỤ 05",serviceDetailTitle5:"Hướng dẫn viên",serviceDetailText5:"Hướng dẫn viên do công ty sắp xếp sẽ đồng hành cùng du khách tại điểm đến, kể về lịch sử, văn hóa và những câu chuyện địa phương thú vị. Nhờ đó, mỗi chuyến tham quan không chỉ là ngắm cảnh mà còn là dịp hiểu sâu hơn về con người, nếp sống và bản sắc của từng vùng đất.",serviceDetailExtra5:"Công ty điều phối hướng dẫn viên và chương trình tham quan phù hợp với hành trình, giúp du khách khám phá điểm đến thuận tiện và trọn vẹn hơn.",serviceDetailLink:"Liên hệ để tìm hiểu →",
+destinationsLabel:"FIND YOUR INSPIRATION",destinationsTitle:"Việt Nam đang chờ bạn",destinationsIntro:"Từ di sản văn hóa đến cảnh quan thiên nhiên, hãy chọn điều bạn muốn khám phá.",destinationTag1:"CULTURE & HERITAGE",destinationTag2:"COAST & CITY",destinationTag3:"OLD TOWN & LOCAL LIFE",destination1Text:"Di sản và chiều sâu văn hóa",destination2Text:"Biển xanh và nhịp sống hiện đại",destination3Text:"Phố cổ và nét sống địa phương",destinationAction:"Khám phá điểm đến",destinationDetailTitle1:"Huế — dấu ấn kinh đô xưa",destinationDetailText1:"Bước qua cổng thành, lắng nghe câu chuyện triều Nguyễn và thong thả khám phá quần thể di tích bên dòng Hương. Huế quyến rũ bởi vẻ trầm mặc, kiến trúc cung đình và nét văn hóa đậm đà.",destinationDetailTitle2:"Đà Nẵng — nơi biển gặp phố",destinationDetailText2:"Từ bãi biển trải dài đến những cây cầu bừng sáng khi đêm xuống, Đà Nẵng mang đến nhịp nghỉ dưỡng thư thái xen lẫn sắc màu thành phố trẻ trung.",destinationDetailTitle3:"Hội An — phố nhỏ, ký ức dài",destinationDetailText3:"Dạo qua những con phố vàng, ngắm đèn lồng và ghé những mái nhà cổ, bạn sẽ cảm nhận được vẻ duyên dáng của thương cảng xưa cùng nhịp sống bình dị bên sông Hoài.",destinationNote:"Các điểm đến trên là gợi ý tham khảo, không phải xác nhận về tour đang mở bán.",
+aboutLabel:"ABOUT VN CENTRAL TRAVEL",aboutTitle:"Một hành trình tốt bắt đầu từ kế hoạch phù hợp.",aboutText:"VN CENTRAL TRAVEL đồng hành cùng du khách trong việc lên kế hoạch và sắp xếp các dịch vụ cần thiết, để mỗi hành trình khám phá Việt Nam trở nên thuận tiện và trọn vẹn hơn.",aboutPoint1:"Lựa chọn dịch vụ theo nhu cầu",aboutPoint2:"Linh hoạt với kế hoạch chuyến đi",aboutPoint3:"Hỗ trợ trao đổi trước khi xác nhận",aboutLink:"Bắt đầu lên kế hoạch →",
+contactLabel:"LET'S PLAN YOUR TRIP",contactTitle:"Câu chuyện tiếp theo của bạn bắt đầu từ đây.",contactText:"VN CENTRAL TRAVEL sẵn sàng đồng hành và sắp xếp các dịch vụ cho hành trình khám phá Việt Nam của bạn.",contactPanelTitle:"Liên hệ VN CENTRAL TRAVEL",contactPanelText:"Chọn thông tin bên dưới để liên hệ với chúng tôi.",contactNotice:"+84 0344566589",contactEmail:"vncentraltravel@gmail.com",contactAddress:"Yersin, Nha Trang",contactWebsite:"vncentraltravel.com",contactProfile:"https://rb.gy/4mf73l",backToTop:"Quay lại đầu trang ↑",backToServices:"Quay lại danh sách dịch vụ ↑"
+},
+en:{
+navHome:"Home",navServices:"Services",navDestinations:"Destinations",navAbout:"About",navContact:"Contact",
+heroEyebrow:"YOUR JOURNEY STARTS HERE",heroCopy:"Discover the beauty of Vietnam through journeys that fit you — from lively cities to peaceful natural places.",exploreServices:"Explore services ↗",planTrip:"Plan your trip",heroNote:"Your journey, your way",heroBottom:"VIETNAM • CULTURE • NATURE • EXPERIENCE",
+introLabel:"TRAVEL WITH MEANING",introTitle:"More than a trip.<br><span>Your story.</span>",introText:"Every traveler explores in their own way. VN CENTRAL TRAVEL presents flexible travel services to help you plan a Vietnam journey that fits your needs.",
+servicesLabel:"WHAT WE OFFER",servicesTitle:"Travel services",servicesIntro:"Choose services that fit your plans and travel style.",service1Title:"Package tours",service1Text:"Explore destinations with a clearly planned tour program.",service2Title:"Custom tours",service2Text:"Build an itinerary around your interests, schedule, and needs.",service3Title:"Airport transfers",service3Text:"Airport pickup and drop-off arranged around your itinerary.",service4Title:"Hotel booking",service4Text:"Find accommodation options that fit your travel plans.",service5Title:"Tour guides",service5Text:"Discover local culture and destinations with suitable guide services.",serviceDisclaimer:"These service descriptions are general information only. Please contact the company to confirm availability, itinerary details, and prices.",serviceDetailLabel1:"SERVICE 01",serviceDetailTitle1:"Package tours",serviceDetailText1:"A package tour is planned and organized by the company around a set itinerary, combining sightseeing with services such as transport, accommodation, or a guide, depending on the program. Rather than arranging every stop yourself, you can leave the tour logistics to the company and focus on enjoying Vietnam’s landscapes and culture.",serviceDetailExtra1:"The itinerary, included services, and pricing are clearly presented for each program, making it easy to choose and enjoy your trip with peace of mind.",serviceDetailLabel2:"SERVICE 02",serviceDetailTitle2:"Custom tours",serviceDetailText2:"A custom tour is designed and organized by the company around travelers’ interests, schedule, and preferred experiences rather than a fixed program. From food and nature to culture, each itinerary is arranged to let you discover Vietnam at your own pace without having to manage the planning yourself.",serviceDetailExtra2:"The company plans the itinerary and coordinates suitable services, keeping the journey organized from preparation through the experience itself.",serviceDetailLabel3:"SERVICE 03",serviceDetailTitle3:"Airport transfers",serviceDetailText3:"Airport transfer service makes it easy to travel between the airport and your accommodation at the beginning or end of your trip. The company arranges pickup and drop-off according to the itinerary, so you can continue your journey without searching for transport after your flight.",serviceDetailExtra3:"This service covers airport pickup and drop-off only; the company arranges the transfer schedule and route as part of the trip.",serviceDetailLabel4:"SERVICE 04",serviceDetailTitle4:"Hotel booking",serviceDetailText4:"The company helps arrange suitable accommodation for your itinerary, so you can rest comfortably and explore your destination with ease. From lively city hotels to peaceful resorts, your stay is arranged to complement the experience of your trip.",serviceDetailExtra4:"The company assists with booking and accommodation details; room availability, policies, and rates are confirmed at the time of booking.",serviceDetailLabel5:"SERVICE 05",serviceDetailTitle5:"Tour guides",serviceDetailText5:"A guide arranged by the company accompanies you at your destination, bringing its history, culture, and local stories to life. Each visit becomes more than sightseeing: it is a chance to understand the people, everyday life, and character of the place more deeply.",serviceDetailExtra5:"The company coordinates a guide and sightseeing program to complement your itinerary, helping you discover each destination with ease.",serviceDetailLink:"Contact us to learn more →",
+destinationsLabel:"FIND YOUR INSPIRATION",destinationsTitle:"Vietnam is waiting for you",destinationsIntro:"From cultural heritage to natural landscapes, choose what you want to discover.",destinationTag1:"CULTURE & HERITAGE",destinationTag2:"COAST & CITY",destinationTag3:"OLD TOWN & LOCAL LIFE",destination1Text:"Heritage and cultural depth",destination2Text:"Blue seas and modern city life",destination3Text:"Historic streets and local life",destinationAction:"Explore destination",destinationDetailTitle1:"Hue — traces of an imperial past",destinationDetailText1:"Step through the citadel gates, hear stories of the Nguyen Dynasty, and explore historic landmarks along the Perfume River. Hue charms visitors with its tranquil atmosphere, imperial architecture, and rich culture.",destinationDetailTitle2:"Da Nang — where the coast meets the city",destinationDetailText2:"From long sandy beaches to bridges glowing after dark, Da Nang blends a relaxing seaside escape with the energy of a modern, youthful city.",destinationDetailTitle3:"Hoi An — a little town with a long memory",destinationDetailText3:"Wander golden streets, admire lanterns, and peek into old houses to discover the charm of this historic trading port and the gentle rhythm of life by the Hoai River.",destinationNote:"These destinations are examples for inspiration and do not confirm that tours are currently available.",
+aboutLabel:"ABOUT VN CENTRAL TRAVEL",aboutTitle:"A great journey starts with a plan that fits.",aboutText:"VN CENTRAL TRAVEL supports travelers with planning and arranging the services they need, making every journey through Vietnam more convenient and complete.",aboutPoint1:"Services tailored to your needs",aboutPoint2:"Flexible trip planning",aboutPoint3:"Discuss details before confirmation",aboutLink:"Start planning →",
+contactLabel:"LET'S PLAN YOUR TRIP",contactTitle:"Your next story starts here.",contactText:"VN CENTRAL TRAVEL is ready to arrange the services for your journey through Vietnam and make your trip easier to enjoy.",contactPanelTitle:"Contact VN CENTRAL TRAVEL",contactPanelText:"Choose an option below to get in touch with us.",contactNotice:"+84 0344566589",contactEmail:"vncentraltravel@gmail.com",contactAddress:"Yersin, Nha Trang",contactWebsite:"vncentraltravel.com",contactProfile:"https://rb.gy/4mf73l",backToTop:"Back to top ↑",backToServices:"Back to services ↑"
+}};
+let currentLanguage="vi";
+const languageToggle=document.getElementById("languageToggle");
+const nav=document.getElementById("mainNav");
+const menuToggle=document.getElementById("menuToggle");
+function setLanguage(language){
+ currentLanguage=language;document.documentElement.lang=language;
+ document.querySelectorAll("[data-i18n]").forEach(element=>{const key=element.dataset.i18n;if(translations[language][key])element.innerHTML=translations[language][key]});
+ languageToggle.textContent=language==="vi"?"EN":"VI";
+ languageToggle.setAttribute("aria-label",language==="vi"?"Switch to English":"Chuyển sang tiếng Việt");
+}
+languageToggle.addEventListener("click",()=>setLanguage(currentLanguage==="vi"?"en":"vi"));
+menuToggle.addEventListener("click",()=>{const isOpen=nav.classList.toggle("open");menuToggle.setAttribute("aria-expanded",String(isOpen));menuToggle.textContent=isOpen?"×":"☰"});
+nav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{nav.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰"}));
+document.querySelectorAll(".service-card").forEach(card=>card.addEventListener("click",event=>{event.preventDefault();const target=document.querySelector(card.getAttribute("href"));const shouldOpen=!target.classList.contains("is-open");document.querySelectorAll(".service-detail").forEach(detail=>detail.classList.remove("is-open"));document.querySelectorAll(".service-card").forEach(item=>item.setAttribute("aria-expanded","false"));if(shouldOpen){target.classList.add("is-open");card.setAttribute("aria-expanded","true");target.scrollIntoView({behavior:"smooth",block:"start"})}}));
+document.querySelectorAll(".service-home-link").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".service-detail").forEach(detail=>detail.classList.remove("is-open"));document.querySelectorAll(".service-card").forEach(card=>card.setAttribute("aria-expanded","false"));document.getElementById("services").scrollIntoView({behavior:"smooth",block:"start"})}));
+document.querySelectorAll(".destination-card").forEach(button=>button.addEventListener("click",()=>{const shouldOpen=button.getAttribute("aria-expanded")!=="true";document.querySelectorAll(".destination-card").forEach(card=>{card.setAttribute("aria-expanded","false");document.getElementById(card.getAttribute("aria-controls")).hidden=true});if(shouldOpen){button.setAttribute("aria-expanded","true");document.getElementById(button.getAttribute("aria-controls")).hidden=false}}));
+document.getElementById("year").textContent=new Date().getFullYear();
