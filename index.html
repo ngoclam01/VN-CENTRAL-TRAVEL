@@ -1,119 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="VN CENTRAL TRAVEL — Khám phá vẻ đẹp Việt Nam qua những hành trình đáng nhớ.">
-  <meta name="theme-color" content="#123b46">
-  <title>VN CENTRAL TRAVEL | Khám phá Việt Nam</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VN CENTRAL TRAVEL — Discover Vietnam. Create Your Story.">
+<meta name="theme-color" content="#0b2435">
+<title>VN CENTRAL TRAVEL | Discover Vietnam. Create Your Story.</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span>Hành trình đáng nhớ bắt đầu từ đây</span>
-      <div class="top-links"><a href="mailto:hello@vncentraltravel.com">hello@vncentraltravel.com</a><span>·</span><a href="#contact">Liên hệ</a></div>
-    </div>
-  </div>
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="#" aria-label="VN Central Travel trang chủ">
-        <span class="brand-mark">✦</span>
-        <span><strong>VN CENTRAL</strong><small>TRAVEL & EXPERIENCES</small></span>
-      </a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false">☰</button>
-      <nav id="mainNav">
-        <a href="#tours">Khám phá tour</a><a href="#destinations">Điểm đến</a><a href="#about">Về chúng tôi</a><a href="#contact">Liên hệ</a>
-        <button class="lang-button" id="langToggle" type="button">EN</button>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-image" role="img" aria-label="Phong cảnh núi non và sông nước Việt Nam"></div>
-      <div class="hero-shade"></div>
-      <div class="container hero-content">
-        <p class="eyebrow" data-vi="CHẠM VÀO VẺ ĐẸP VIỆT NAM" data-en="DISCOVER THE BEAUTY OF VIETNAM">CHẠM VÀO VẺ ĐẸP VIỆT NAM</p>
-        <h1 data-vi="Đi để thấy<br>Việt Nam diệu kỳ." data-en="Go beyond.<br>Discover Vietnam.">Đi để thấy<br>Việt Nam diệu kỳ.</h1>
-        <p class="hero-copy" data-vi="Từ những bờ biển đầy nắng đến miền núi bình yên, hãy cùng chúng tôi tạo nên hành trình của riêng bạn." data-en="From sunlit beaches to peaceful mountains, let us help you create a journey of your own.">Từ những bờ biển đầy nắng đến miền núi bình yên, hãy cùng chúng tôi tạo nên hành trình của riêng bạn.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#tours" data-vi="Khám phá các tour" data-en="Explore our tours">Khám phá các tour <span>↗</span></a><a class="text-link" href="#about" data-vi="Tìm hiểu về chúng tôi" data-en="Discover our story">Tìm hiểu về chúng tôi <span>→</span></a></div>
-        <div class="hero-note"><span class="note-line"></span><span data-vi="Trải nghiệm địa phương · Kỷ niệm dài lâu" data-en="Local experiences · Lasting memories">Trải nghiệm địa phương · Kỷ niệm dài lâu</span></div>
-      </div>
-      <div class="hero-index"><span>01</span><i></i><span>03</span></div>
-    </section>
-
-    <section class="search-wrap">
-      <div class="container">
-        <form class="search-panel" id="tourSearch">
-          <label><span data-vi="BẠN MUỐN ĐI ĐÂU?" data-en="WHERE TO?">BẠN MUỐN ĐI ĐÂU?</span><select id="destination"><option value="all">Tất cả điểm đến</option><option value="central">Miền Trung</option><option value="north">Miền Bắc</option><option value="south">Miền Nam</option></select></label>
-          <label><span data-vi="PHONG CÁCH DU LỊCH" data-en="TRAVEL STYLE">PHONG CÁCH DU LỊCH</span><select id="style"><option value="all">Tất cả trải nghiệm</option><option value="culture">Văn hóa & di sản</option><option value="nature">Thiên nhiên</option><option value="beach">Biển & nghỉ dưỡng</option></select></label>
-          <label><span data-vi="THỜI LƯỢNG" data-en="DURATION">THỜI LƯỢNG</span><select id="duration"><option value="all">Mọi thời lượng</option><option value="short">1–2 ngày</option><option value="long">3 ngày trở lên</option></select></label>
-          <button class="btn btn-dark" type="submit" data-vi="Tìm hành trình" data-en="Find a trip">Tìm hành trình <span>↗</span></button>
-        </form>
-      </div>
-    </section>
-
-    <section class="section featured" id="tours">
-      <div class="container">
-        <div class="section-heading">
-          <div><p class="eyebrow dark-eyebrow" data-vi="NHỮNG HÀNH TRÌNH ĐƯỢC YÊU THÍCH" data-en="CURATED JOURNEYS">NHỮNG HÀNH TRÌNH ĐƯỢC YÊU THÍCH</p><h2 data-vi="Điểm đến nổi bật" data-en="Featured journeys">Điểm đến nổi bật</h2></div>
-          <a class="view-all" href="#contact" data-vi="Xem tất cả tour" data-en="View all tours">Xem tất cả tour <span>↗</span></a>
-        </div>
-        <div class="tour-grid" id="tourGrid">
-          <article class="tour-card" data-region="central" data-style="culture" data-duration="long">
-            <div class="tour-photo photo-hoian"><span class="tour-tag">VĂN HÓA & DI SẢN</span><span class="photo-number">01</span></div>
-            <div class="tour-info"><div class="tour-meta"><span>3 NGÀY · 2 ĐÊM</span><span>★ 4.9</span></div><h3>Đà Nẵng & Phố cổ Hội An</h3><p>Thưởng ngoạn di sản, ẩm thực địa phương và những con phố đèn lồng.</p><div class="tour-bottom"><div><small>Giá tham khảo từ</small><strong>2.450.000đ <em>/ khách</em></strong></div><a class="round-arrow" href="#contact" aria-label="Hỏi về tour Hội An">↗</a></div></div>
-          </article>
-          <article class="tour-card" data-region="north" data-style="nature" data-duration="long">
-            <div class="tour-photo photo-ninhbinh"><span class="tour-tag">THIÊN NHIÊN</span><span class="photo-number">02</span></div>
-            <div class="tour-info"><div class="tour-meta"><span>2 NGÀY · 1 ĐÊM</span><span>★ 4.8</span></div><h3>Ninh Bình – Miền non nước</h3><p>Ngồi thuyền qua dòng sông yên ả, khám phá núi đá và thung lũng xanh.</p><div class="tour-bottom"><div><small>Giá tham khảo từ</small><strong>1.690.000đ <em>/ khách</em></strong></div><a class="round-arrow" href="#contact" aria-label="Hỏi về tour Ninh Bình">↗</a></div></div>
-          </article>
-          <article class="tour-card" data-region="central" data-style="beach" data-duration="short">
-            <div class="tour-photo photo-quynhon"><span class="tour-tag">BIỂN & NGHỈ DƯỠNG</span><span class="photo-number">03</span></div>
-            <div class="tour-info"><div class="tour-meta"><span>2 NGÀY · 1 ĐÊM</span><span>★ 4.9</span></div><h3>Quy Nhơn – Biển gọi nắng</h3><p>Tận hưởng làn nước trong xanh, bờ biển hoang sơ và nhịp sống chậm.</p><div class="tour-bottom"><div><small>Giá tham khảo từ</small><strong>1.850.000đ <em>/ khách</em></strong></div><a class="round-arrow" href="#contact" aria-label="Hỏi về tour Quy Nhơn">↗</a></div></div>
-          </article>
-        </div>
-        <p class="demo-note">* Tour, giá và đánh giá trên đây là nội dung minh họa. Vui lòng cập nhật thông tin thực tế trước khi công bố.</p>
-        <p id="noResults" class="no-results" hidden>Chưa tìm thấy tour phù hợp. Hãy thử chọn bộ lọc khác nhé.</p>
-      </div>
-    </section>
-
-    <section class="destinations section" id="destinations">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow dark-eyebrow" data-vi="VIỆT NAM ĐANG CHỜ BẠN" data-en="VIETNAM IS CALLING">VIỆT NAM ĐANG CHỜ BẠN</p><h2 data-vi="Mỗi miền, một câu chuyện" data-en="Every region has a story">Mỗi miền, một câu chuyện</h2></div><p class="heading-description" data-vi="Tìm cảm hứng cho chuyến đi tiếp theo của bạn." data-en="Find inspiration for your next adventure.">Tìm cảm hứng cho chuyến đi tiếp theo của bạn.</p></div>
-        <div class="destination-grid">
-          <a class="destination-card dest-north" href="#tours"><span>01 / MIỀN BẮC</span><strong>Núi non & di sản</strong><i>↗</i></a>
-          <a class="destination-card dest-central" href="#tours"><span>02 / MIỀN TRUNG</span><strong>Nắng vàng & biển xanh</strong><i>↗</i></a>
-          <a class="destination-card dest-south" href="#tours"><span>03 / MIỀN NAM</span><strong>Sông nước & nhịp sống</strong><i>↗</i></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="about section" id="about">
-      <div class="container about-layout">
-        <div class="about-visual"><div class="about-image"></div><div class="about-stamp">GO<br>LOCAL<br><span>♥</span></div><div class="about-caption">VIETNAM · AUTHENTIC EXPERIENCES</div></div>
-        <div class="about-copy"><p class="eyebrow" data-vi="CÂU CHUYỆN CỦA CHÚNG TÔI" data-en="OUR STORY">CÂU CHUYỆN CỦA CHÚNG TÔI</p><h2 data-vi="Không chỉ là một chuyến đi.<br>Là cách bạn cảm nhận Việt Nam." data-en="More than a trip.<br>A deeper feel for Vietnam.">Không chỉ là một chuyến đi.<br>Là cách bạn cảm nhận Việt Nam.</h2><p data-vi="VN CENTRAL TRAVEL hướng đến những hành trình chỉn chu, kết nối du khách với vẻ đẹp thiên nhiên, văn hóa và con người địa phương. Chúng tôi tin rằng mỗi chuyến đi đều có thể trở thành một kỷ niệm đáng nhớ." data-en="VN CENTRAL TRAVEL creates thoughtful journeys that connect travelers with the nature, culture and people of each place. We believe every trip can become a lasting memory.">VN CENTRAL TRAVEL hướng đến những hành trình chỉn chu, kết nối du khách với vẻ đẹp thiên nhiên, văn hóa và con người địa phương. Chúng tôi tin rằng mỗi chuyến đi đều có thể trở thành một kỷ niệm đáng nhớ.</p><a class="btn btn-outline" href="#contact" data-vi="Cùng lên kế hoạch" data-en="Plan your journey">Cùng lên kế hoạch <span>↗</span></a><div class="about-stats"><div><strong>Địa phương</strong><small>Trải nghiệm chân thực</small></div><div><strong>Linh hoạt</strong><small>Hành trình theo nhu cầu</small></div><div><strong>Tận tâm</strong><small>Đồng hành cùng bạn</small></div></div></div>
-      </div>
-    </section>
-
-    <section class="quote-section"><div class="container quote-inner"><span class="quote-mark">“</span><p data-vi="Đi thật xa để thấy, và đi thật chậm để cảm nhận." data-en="Travel far to discover, travel slowly to truly feel.">Đi thật xa để thấy, và đi thật chậm để cảm nhận.</p><span class="quote-by">THE VN CENTRAL TRAVEL SPIRIT</span></div></section>
-
-    <section class="contact section" id="contact">
-      <div class="container contact-layout">
-        <div><p class="eyebrow dark-eyebrow" data-vi="HÀNH TRÌNH CỦA BẠN BẮT ĐẦU TỪ ĐÂY" data-en="YOUR JOURNEY STARTS HERE">HÀNH TRÌNH CỦA BẠN BẮT ĐẦU TỪ ĐÂY</p><h2 data-vi="Hãy cùng lên kế hoạch<br>cho chuyến đi tiếp theo." data-en="Let's plan your<br>next adventure.">Hãy cùng lên kế hoạch<br>cho chuyến đi tiếp theo.</h2><p class="contact-copy" data-vi="Để lại thông tin, đội ngũ của chúng tôi sẽ liên hệ tư vấn hành trình phù hợp." data-en="Leave your details and our team will help you plan the right journey.">Để lại thông tin, đội ngũ của chúng tôi sẽ liên hệ tư vấn hành trình phù hợp.</p><div class="contact-details"><div><small>EMAIL</small><a href="mailto:hello@vncentraltravel.com">hello@vncentraltravel.com</a></div><div><small>ĐIỆN THOẠI / WHATSAPP</small><a href="https://wa.me/84000000000" target="_blank" rel="noopener">+84 [Số điện thoại công ty]</a></div></div></div>
-        <form class="contact-form" id="contactForm">
-          <label>Họ và tên / Full name<input required name="name" autocomplete="name" placeholder="Tên của bạn"></label>
-          <label>Email hoặc WhatsApp<input required name="contact" placeholder="Cách chúng tôi liên hệ với bạn"></label>
-          <label>Bạn quan tâm đến tour nào?<select name="tour"><option>Đà Nẵng & Hội An</option><option>Ninh Bình</option><option>Quy Nhơn</option><option>Tour thiết kế riêng</option><option>Chưa xác định</option></select></label>
-          <label>Lời nhắn<textarea name="message" rows="3" placeholder="Ngày đi dự kiến, số khách, mong muốn..."></textarea></label>
-          <button class="btn btn-dark form-submit" type="submit">Gửi yêu cầu tư vấn <span>↗</span></button>
-          <p class="form-note">Bản demo: nút gửi sẽ mở ứng dụng email của bạn. Hãy thay địa chỉ email bằng email chính thức của công ty.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-  <footer class="footer"><div class="container footer-main"><a class="brand brand-light" href="#"><span class="brand-mark">✦</span><span><strong>VN CENTRAL</strong><small>TRAVEL & EXPERIENCES</small></span></a><p data-vi="Khám phá Việt Nam theo cách của riêng bạn." data-en="Discover Vietnam, your own way.">Khám phá Việt Nam theo cách của riêng bạn.</p><a href="#top" class="back-top">LÊN ĐẦU TRANG ↑</a></div><div class="container footer-bottom"><span>© <span id="year"></span> VN CENTRAL TRAVEL. All rights reserved.</span><span>Made for meaningful journeys.</span></div></footer>
-  <script src="script.js"></script>
-</body>
-</html>
+<header class="site-header">
+<a class="brand" href="#home" aria-label="VN CENTRAL TRAVEL home"><span class="brand-mark" aria-hidden="true"><img src="2417bcb9-e7b1-4488-837f-20f528f930d3.jpg" alt=""></span><span class="brand-name">VN CENTRAL <b>TRAVEL</b></span></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+<nav class="nav" id="mainNav">
+<a href="#home" data-i18n="navHome">Trang chủ</a><a href="#services" data-i18n="navServices">Dịch vụ</a><a href="#destinations" data-i18n="navDestinations">Điểm đến</a><a href="#about" data-i18n="navAbout">Về chúng tôi</a><a href="#contact" class="nav-cta" data-i18n="navContact">Liên hệ</a><button class="language-toggle" id="languageToggle" type="button">EN</button>
+</nav>
+</header>
+<main>
+<section class="hero" id="home"><div class="hero-landscape" aria-hidden="true"><svg viewBox="0 0 1440 230" preserveAspectRatio="none"><path fill="#e6f7f6" d="M0 95 130 135 260 77 380 142 510 100 650 151 790 92 930 143 1080 82 1220 134 1440 70v160H0Z"/><path fill="#badfeb" d="m0 142 125 30 145-42 145 37 140-22 145 44 160-55 150 43 145-65 135 38 150-39v119H0Z"/><path fill="#0879b5" d="M0 168 95 174v-24h13v24h8v-40h16v40h9v-31h14v31h12v-54h20v54h8v-34h16v34h12v-20h14v20h18v-32h17v32h13v-45h19v45h18v-24h17v24h12v-17h15v17h22v-27h17v27h20v-15h12v15h40v-36h12v36h12v-25h17v25h20v-19h12v19h45v-34h17v34h13v-23h17v23h15v-48h22v48h12v-27h16v27h16v-36h21v36h19v-20h15v20h24v-58h22v58h15v-34h16v34h19v-24h18v24h19v-43h22v43h15v-29h16v29h22v-52h20v52h16v-26h18v26h15v-35h20v35h17v-19h17v19h25v-33h18v33h17v-25h19v25h26v-40h20v40h18v-22h17v22h20v-31h22v31h19v-17h15v17h41v-40h21v40h19v-27h18v27h29v-44h18v44h25v-24h16v24h41v-15h12v15h75v62H0Z"/><path d="M0 187c170 0 220-9 350 3s175 13 278 4 160-11 246 1 172 14 271-2 185-20 295-7v44H0Z" fill="#f6b531"/><path d="M0 202c178-20 295-14 430 6s215 21 345-4 198-32 328-18 219 20 337 1v43H0Z" fill="#18a5c5"/><path d="M0 218c165-25 297-15 432 4s242 22 365-2 214-31 347-17 196 20 296 0v27H0Z" fill="#075ca5"/></svg></div><div class="hero-content">
+<p class="eyebrow" data-i18n="heroEyebrow">YOUR JOURNEY STARTS HERE</p><h1>Discover Vietnam.<br><span>Create Your Story.</span></h1>
+<p class="hero-copy" data-i18n="heroCopy">Khám phá vẻ đẹp Việt Nam qua những hành trình phù hợp với bạn — từ thành phố sôi động đến thiên nhiên yên bình.</p>
+<div class="hero-actions"><a class="button button-primary" href="#services" data-i18n="exploreServices">Khám phá dịch vụ ↗</a><a class="button button-ghost" href="#contact" data-i18n="planTrip">Lên kế hoạch chuyến đi</a></div>
+<div class="hero-note"><span class="note-dot"></span><span data-i18n="heroNote">Hành trình của bạn, theo cách của bạn</span></div></div>
+</section>
+<section class="intro section-wrap"><div><p class="eyebrow dark-eyebrow" data-i18n="introLabel">TRAVEL WITH MEANING</p><h2 data-i18n="introTitle">Không chỉ là một chuyến đi.<br><span>Là câu chuyện của bạn.</span></h2></div><p class="intro-text" data-i18n="introText">Mỗi du khách có một cách khám phá riêng. VN CENTRAL TRAVEL giới thiệu các dịch vụ du lịch linh hoạt để bạn có thể lên kế hoạch cho hành trình tại Việt Nam theo nhu cầu của mình.</p></section>
+<section class="services section-wrap" id="services"><div class="section-heading"><div><p class="eyebrow dark-eyebrow" data-i18n="servicesLabel">WHAT WE OFFER</p><h2 data-i18n="servicesTitle">Dịch vụ du lịch</h2></div><p data-i18n="servicesIntro">Chọn dịch vụ phù hợp với kế hoạch và phong cách du lịch của bạn.</p></div>
+<div class="service-grid">
+<a class="service-card" href="#service-detail-1" aria-expanded="false"><div class="service-icon">↗</div><p class="card-number">01</p><h3 data-i18n="service1Title">Tour trọn gói</h3><p data-i18n="service1Text">Khám phá các điểm đến với chương trình tour được sắp xếp rõ ràng.</p></a>
+<a class="service-card" href="#service-detail-2" aria-expanded="false"><div class="service-icon">✳</div><p class="card-number">02</p><h3 data-i18n="service2Title">Tour theo yêu cầu</h3><p data-i18n="service2Text">Xây dựng lịch trình theo sở thích, thời gian và nhu cầu của bạn.</p></a>
+<a class="service-card" href="#service-detail-3" aria-expanded="false"><div class="service-icon">⌁</div><p class="card-number">03</p><h3 data-i18n="service3Title">Đưa đón sân bay</h3><p data-i18n="service3Text">Đón và tiễn khách giữa sân bay với điểm lưu trú theo lịch trình.</p></a>
+<a class="service-card" href="#service-detail-4" aria-expanded="false"><div class="service-icon">⌂</div><p class="card-number">04</p><h3 data-i18n="service4Title">Đặt khách sạn</h3><p data-i18n="service4Text">Hỗ trợ tìm lựa chọn lưu trú phù hợp với kế hoạch của bạn.</p></a>
+<a class="service-card" href="#service-detail-5" aria-expanded="false"><div class="service-icon">◎</div><p class="card-number">05</p><h3 data-i18n="service5Title">Hướng dẫn viên</h3><p data-i18n="service5Text">Tìm hiểu văn hóa và điểm đến cùng dịch vụ hướng dẫn phù hợp.</p></a>
+</div><p class="service-disclaimer" data-i18n="serviceDisclaimer">Thông tin dịch vụ trên là phần giới thiệu tổng quan. Vui lòng liên hệ để xác nhận dịch vụ, lịch trình, tình trạng cung cấp và chi phí.</p></section>
+<section class="service-details section-wrap" aria-label="Service details">
+<article class="service-detail" id="service-detail-1"><div class="service-detail-image"><img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=85" alt="Cảnh quan Việt Nam trên hành trình tour trọn gói" loading="lazy"></div><div class="service-detail-copy"><p class="eyebrow dark-eyebrow" data-i18n="serviceDetailLabel1">SERVICE 01</p><h2 data-i18n="serviceDetailTitle1">Tour trọn gói</h2><p data-i18n="serviceDetailText1">Tour trọn gói là chuyến đi được công ty lên kế hoạch và tổ chức theo lịch trình, kết hợp các điểm tham quan cùng những dịch vụ như di chuyển, lưu trú hoặc hướng dẫn viên tùy chương trình. Thay vì tự sắp xếp từng chặng, du khách có thể để công ty phụ trách các khâu trong tour và dành thời gian tận hưởng hành trình qua những miền đất Việt Nam.</p><p class="service-detail-extra" data-i18n="serviceDetailExtra1">Lịch trình, dịch vụ đi kèm và chi phí được trình bày rõ theo từng chương trình để du khách dễ dàng lựa chọn và an tâm trải nghiệm.</p><a class="text-link" href="#contact" data-i18n="serviceDetailLink">Liên hệ để tìm hiểu →</a><button class="button button-light service-home-link" type="button" data-i18n="backToServices">Quay lại danh sách dịch vụ ↑</button></div></article>
+<article class="service-detail" id="service-detail-2"><div class="service-detail-image"><img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1000&q=85" alt="Bản đồ và vật dụng lên kế hoạch cho tour theo yêu cầu" loading="lazy"></div><div class="service-detail-copy"><p class="eyebrow dark-eyebrow" data-i18n="serviceDetailLabel2">SERVICE 02</p><h2 data-i18n="serviceDetailTitle2">Tour theo yêu cầu</h2><p data-i18n="serviceDetailText2">Tour theo yêu cầu là hành trình do công ty thiết kế và tổ chức dựa trên sở thích, lịch trình và phong cách trải nghiệm của du khách, thay vì theo một chương trình cố định. Từ ẩm thực, thiên nhiên đến văn hóa, mỗi hành trình được sắp xếp để du khách khám phá Việt Nam theo nhịp điệu riêng mà không phải tự lo từng khâu tổ chức.</p><p class="service-detail-extra" data-i18n="serviceDetailExtra2">Công ty phụ trách xây dựng lịch trình và điều phối các dịch vụ phù hợp, giúp chuyến đi được sắp xếp liền mạch từ khâu chuẩn bị đến trải nghiệm.</p><a class="text-link" href="#contact" data-i18n="serviceDetailLink">Liên hệ để tìm hiểu →</a><button class="button button-light service-home-link" type="button" data-i18n="backToServices">Quay lại danh sách dịch vụ ↑</button></div></article>
+<article class="service-detail" id="service-detail-3"><div class="service-detail-image"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=85" alt="Máy bay hạ cánh tại sân bay, minh họa dịch vụ đưa đón sân bay" loading="lazy"></div><div class="service-detail-copy"><p class="eyebrow dark-eyebrow" data-i18n="serviceDetailLabel3">SERVICE 03</p><h2 data-i18n="serviceDetailTitle3">Đưa đón sân bay</h2><p data-i18n="serviceDetailText3">Dịch vụ đưa đón sân bay giúp du khách di chuyển thuận tiện giữa sân bay và điểm lưu trú khi bắt đầu hoặc kết thúc chuyến đi. Công ty sắp xếp xe đón, tiễn theo lịch trình đã thống nhất, để du khách không phải tự tìm phương tiện sau chuyến bay và có thể yên tâm nối tiếp hành trình.</p><p class="service-detail-extra" data-i18n="serviceDetailExtra3">Dịch vụ tập trung riêng vào chặng đưa đón sân bay; lịch đón, điểm đến và phương án di chuyển được công ty sắp xếp theo chương trình.</p><a class="text-link" href="#contact" data-i18n="serviceDetailLink">Liên hệ để tìm hiểu →</a><button class="button button-light service-home-link" type="button" data-i18n="backToServices">Quay lại danh sách dịch vụ ↑</button></div></article>
+<article class="service-detail" id="service-detail-4"><div class="service-detail-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=85" alt="Phòng khách sạn được chuẩn bị cho kỳ nghỉ" loading="lazy"></div><div class="service-detail-copy"><p class="eyebrow dark-eyebrow" data-i18n="serviceDetailLabel4">SERVICE 04</p><h2 data-i18n="serviceDetailTitle4">Đặt khách sạn</h2><p data-i18n="serviceDetailText4">Công ty hỗ trợ lựa chọn và đặt nơi lưu trú phù hợp với hành trình, để du khách có không gian nghỉ ngơi thoải mái và thuận tiện khám phá điểm đến. Từ khách sạn giữa phố nhộn nhịp đến khu nghỉ dưỡng yên bình, nơi lưu trú được sắp xếp hài hòa với trải nghiệm của chuyến đi.</p><p class="service-detail-extra" data-i18n="serviceDetailExtra4">Công ty hỗ trợ sắp xếp đặt phòng và thông tin về nơi lưu trú; tình trạng phòng, chính sách và mức giá được xác nhận theo thời điểm đặt.</p><a class="text-link" href="#contact" data-i18n="serviceDetailLink">Liên hệ để tìm hiểu →</a><button class="button button-light service-home-link" type="button" data-i18n="backToServices">Quay lại danh sách dịch vụ ↑</button></div></article>
+<article class="service-detail" id="service-detail-5"><div class="service-detail-image"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=85" alt="Nhóm du khách cùng khám phá điểm đến với hướng dẫn viên" loading="lazy"></div><div class="service-detail-copy"><p class="eyebrow dark-eyebrow" data-i18n="serviceDetailLabel5">SERVICE 05</p><h2 data-i18n="serviceDetailTitle5">Hướng dẫn viên</h2><p data-i18n="serviceDetailText5">Hướng dẫn viên do công ty sắp xếp sẽ đồng hành cùng du khách tại điểm đến, kể về lịch sử, văn hóa và những câu chuyện địa phương thú vị. Nhờ đó, mỗi chuyến tham quan không chỉ là ngắm cảnh mà còn là dịp hiểu sâu hơn về con người, nếp sống và bản sắc của từng vùng đất.</p><p class="service-detail-extra" data-i18n="serviceDetailExtra5">Công ty điều phối hướng dẫn viên và chương trình tham quan phù hợp với hành trình, giúp du khách khám phá điểm đến thuận tiện và trọn vẹn hơn.</p><a class="text-link" href="#contact" data-i18n="serviceDetailLink">Liên hệ để tìm hiểu →</a><button class="button button-light service-home-link" type="button" data-i18n="backToServices">Quay lại danh sách dịch vụ ↑</button></div></article>
+</section>
+<section class="destinations" id="destinations"><div class="section-wrap destination-inner"><div class="section-heading light-heading"><div><p class="eyebrow" data-i18n="destinationsLabel">FIND YOUR INSPIRATION</p><h2 data-i18n="destinationsTitle">Việt Nam đang chờ bạn</h2></div><p data-i18n="destinationsIntro">Từ di sản văn hóa đến cảnh quan thiên nhiên, hãy chọn điều bạn muốn khám phá.</p></div>
+<div class="destination-grid">
+<article class="destination-item"><button class="destination-card destination-one" type="button" aria-expanded="false" aria-controls="destination-detail-1"><span class="destination-overlay"></span><span class="destination-info"><span class="destination-tag" data-i18n="destinationTag1">CULTURE & HERITAGE</span><strong>Huế</strong><span class="destination-summary" data-i18n="destination1Text">Di sản và chiều sâu văn hóa</span><span class="destination-action" data-i18n="destinationAction">Khám phá điểm đến ↓</span></span></button><div class="destination-detail" id="destination-detail-1" hidden><h3 data-i18n="destinationDetailTitle1">Huế — dấu ấn kinh đô xưa</h3><p data-i18n="destinationDetailText1">Bước qua cổng thành, lắng nghe câu chuyện triều Nguyễn và thong thả khám phá quần thể di tích bên dòng Hương. Huế quyến rũ bởi vẻ trầm mặc, kiến trúc cung đình và nét văn hóa đậm đà.</p></div></article>
+<article class="destination-item"><button class="destination-card destination-two" type="button" aria-expanded="false" aria-controls="destination-detail-2"><span class="destination-overlay"></span><span class="destination-info"><span class="destination-tag" data-i18n="destinationTag2">COAST & CITY</span><strong>Đà Nẵng</strong><span class="destination-summary" data-i18n="destination2Text">Biển xanh và nhịp sống hiện đại</span><span class="destination-action" data-i18n="destinationAction">Khám phá điểm đến ↓</span></span></button><div class="destination-detail" id="destination-detail-2" hidden><h3 data-i18n="destinationDetailTitle2">Đà Nẵng — nơi biển gặp phố</h3><p data-i18n="destinationDetailText2">Từ bãi biển trải dài đến những cây cầu bừng sáng khi đêm xuống, Đà Nẵng mang đến nhịp nghỉ dưỡng thư thái xen lẫn sắc màu thành phố trẻ trung.</p></div></article>
+<article class="destination-item"><button class="destination-card destination-three" type="button" aria-expanded="false" aria-controls="destination-detail-3"><span class="destination-overlay"></span><span class="destination-info"><span class="destination-tag" data-i18n="destinationTag3">OLD TOWN & LOCAL LIFE</span><strong>Hội An</strong><span class="destination-summary" data-i18n="destination3Text">Phố cổ và nét sống địa phương</span><span class="destination-action" data-i18n="destinationAction">Khám phá điểm đến ↓</span></span></button><div class="destination-detail" id="destination-detail-3" hidden><h3 data-i18n="destinationDetailTitle3">Hội An — phố nhỏ, ký ức dài</h3><p data-i18n="destinationDetailText3">Dạo qua những con phố vàng, ngắm đèn lồng và ghé những mái nhà cổ, bạn sẽ cảm nhận được vẻ duyên dáng của thương cảng xưa cùng nhịp sống bình dị bên sông Hoài.</p></div></article>
+</div><p class="destination-note" data-i18n="destinationNote">Các điểm đến trên là gợi ý tham khảo, không phải xác nhận về tour đang mở bán.</p></div></section>
+<section class="about section-wrap" id="about"><div class="about-visual"><img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1100&q=85" alt="Phong cảnh thiên nhiên tại Việt Nam" loading="lazy"><div class="visual-caption"><span>VN</span><p>Discover Vietnam<br>Create Your Story.</p></div></div>
+<div class="about-copy"><p class="eyebrow dark-eyebrow" data-i18n="aboutLabel">ABOUT VN CENTRAL TRAVEL</p><h2 data-i18n="aboutTitle">Một hành trình tốt bắt đầu từ kế hoạch phù hợp.</h2><p data-i18n="aboutText">VN CENTRAL TRAVEL đồng hành cùng du khách trong việc lên kế hoạch và sắp xếp các dịch vụ cần thiết, để mỗi hành trình khám phá Việt Nam trở nên thuận tiện và trọn vẹn hơn.</p><ul class="about-points"><li><span>✓</span><span data-i18n="aboutPoint1">Lựa chọn dịch vụ theo nhu cầu</span></li><li><span>✓</span><span data-i18n="aboutPoint2">Linh hoạt với kế hoạch chuyến đi</span></li><li><span>✓</span><span data-i18n="aboutPoint3">Hỗ trợ trao đổi trước khi xác nhận</span></li></ul><a class="text-link" href="#contact" data-i18n="aboutLink">Bắt đầu lên kế hoạch →</a></div></section>
+<section class="contact-section" id="contact"><div class="section-wrap contact-inner"><div class="contact-copy"><p class="eyebrow" data-i18n="contactLabel">LET'S PLAN YOUR TRIP</p><h2 data-i18n="contactTitle">Câu chuyện tiếp theo của bạn bắt đầu từ đây.</h2><p data-i18n="contactText">VN CENTRAL TRAVEL sẵn sàng đồng hành và sắp xếp các dịch vụ cho hành trình khám phá Việt Nam của bạn.</p></div>
+<div class="contact-panel"><h3 data-i18n="contactPanelTitle">Liên hệ VN CENTRAL TRAVEL</h3><p data-i18n="contactPanelText">Chọn thông tin bên dưới để liên hệ với chúng tôi.</p><div class="contact-placeholder"><span class="placeholder-icon">☎</span><a href="tel:+84344566589" data-i18n="contactNotice">+84 0344566589</a></div><div class="contact-placeholder"><span class="placeholder-icon">✉</span><a href="mailto:vncentraltravel@gmail.com" data-i18n="contactEmail">vncentraltravel@gmail.com</a></div><a class="button button-light" href="#home" data-i18n="backToTop">Quay lại đầu trang ↑</a></div></div></section>
+</main>
+<footer class="site-footer"><a class="brand footer-brand" href="#home" aria-label="VN CENTRAL TRAVEL home"><span class="brand-mark" aria-hidden="true"><img src="logo.jpg" alt="VN Central Travel"></span><span class="brand-name">VN CENTRAL <b>TRAVEL</b></span></a><p>Discover Vietnam. Create Your Story.</p><span class="copyright">© <span id="year"></span> VN CENTRAL TRAVEL</span></footer>
+<script src="script.js"></script>
+</body></html>
